@@ -27,8 +27,8 @@ The **ImaginArt: AI-Powered Text to Image Generator** is a web application that 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/text-to-image-generator.git
-   cd text-to-image-generator
+   git clone https://github.com/uyen-nguyen-190304/text-to-image
+   cd text-to-image
    ```
 
 2. Set up a virtual environment:
