@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text to Image Generator</title>
+</head>
+
+<body>
+    <style>
+        button {
+            border: none;
+            background-color: orange;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            display: inline-block;
+            font-size: 18px;
+            margin: 2px;
+        }
+
+        body {
+            font-family: Arial;
+            text-align: center;
+            color: white;
+            background-color: black;
+        }
+
+        select {
+            font-size: 18pt;
+            padding: 3px;
+        }
+
+        textarea {
+            font-size: 10pt;
+            background-color: rgba(128, 128, 128, 0.5); 
+            color: white;
+        }
+
+        h1 {
+            color: orange; 
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .myDiv {
+            margin-bottom: 8px;
+        }
+
+        img {
+            border: 1px solid white;
+            margin: 2px;
+        }
+    </style>
+
+    <h1>Text to Image Generator</h1>
+    <br>
+
+    <form action="/" method="post">
+        <div class="myDiv">
+            <p>Number of Images to Generate:</p>
+            <select name="num_images">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="6">6</option>
+                <option value="12">12</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+        <br>
+
+        <div class="myDiv">
+            <p>Prompt to generate image:</p>
+            <textarea name="prompt" rows="3" cols="50" placeholder="Enter prompt here to generate image"></textarea>
+        </div>
+        <br>
+
+        <div class="myDiv">
+            <button>Generate</button>
+        </div>
+        <br>
+
+        {% if prompt is defined %}
+        <h2>Prompt generated: {{ prompt }}</h2>
+        <div class="image-container">
+            {% for image_url in image_urls %}
+                <img src="{{ image_url }}" />
+            {% endfor %}
+        </div>
+        {% endif %}
+    </form>
+    <br>
+
+</body>
+</html>
